@@ -24,6 +24,7 @@ import org.springframework.format.annotation.NumberFormat;
  * Book --- represents a book in the repository.
  * @author    Diego da Silva Lourenco
  */
+
 @Entity
 public class Book {
 	
