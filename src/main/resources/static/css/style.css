@@ -1,0 +1,61 @@
+@media(min-width: 769px) {
+	
+	.panel-default {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.alert {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.navbar-brand img {
+		float: left;
+		max-width: 400px;
+		min-height: 70px;
+		width: auto;
+		height: auto;
+	}
+	
+	.container-fluid {
+		min-height: 100px;
+	}
+}
+
+@media (max-width: 768px) {
+	
+	.navbar-brand img {
+		float: left;
+		max-width: 200px;
+		min-height: 40px;
+		width: auto;
+		height: auto;
+	}
+
+	.container-fluid {
+		min-height: 70px;
+	}
+}
+
+.container-fluid {
+	background-color: #1d4786;
+}
+
+.navbar-brand {
+	padding-top: 15px;
+}
+
+.form-control {
+	min-width: 110px;
+}
+
+.gft-link-panel {
+	float: right;
+	padding: 0px;
+}
+
+.gft-title-panel {
+	float: left;
+	padding-top: 2px
+}

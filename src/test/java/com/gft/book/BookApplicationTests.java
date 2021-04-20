@@ -1,10 +1,10 @@
-package com.gft.livros;
+package com.gft.book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LivrosApplicationTests {
+class BookApplicationTests {
 
 	@Test
 	void contextLoads() {
