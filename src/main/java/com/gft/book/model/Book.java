@@ -52,8 +52,8 @@ public class Book {
 	private Date dateInclusion;
 	
 	@NotNull(message = "Avaliação é obrigatória")
-	@DecimalMin(value = "0.1", message = "Avaliação não pode ser menor que 0,01")
-	@DecimalMax(value = "10,0", message = "Avaliação não pode ser maio que 10,0")
+	@DecimalMin(value = "0.1", message = "Avaliação não pode ser menor que 0,1")
+	@DecimalMax(value = "10.0", message = "Avaliação não pode ser maio que 10,0")
 	@NumberFormat(pattern = "#,#0.0")
 	private BigDecimal rate;
 	

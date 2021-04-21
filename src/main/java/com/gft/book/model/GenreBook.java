@@ -17,13 +17,13 @@ public enum GenreBook {
 	THRILLER("Suspense"),
 	TRAVEL("Viagem");
 	
-	private String genre;
+	private String description;
 
-	GenreBook(String genre) {
-		this.genre = genre;
+	GenreBook(String description) {
+		this.description = description;
 	}
 	
-	public String getGenre() {
-		return genre;
+	public String getDescription() {
+		return description;
 	}
 }

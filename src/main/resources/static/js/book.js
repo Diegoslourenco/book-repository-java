@@ -1,67 +1,39 @@
-// Função que busca dinamicamente o código do Título a ser deletado, mostrando ao usuário a descrição desse título na mensagem de confirmação do modal
+// Function that gets the bookId to be deleted abd show the book's title in the modal confirmation
 
-$('#confirmacaoExclusaoModal').on('show.bs.modal', function(event) {
+$('#deleteConfirmationModal').on('show.bs.modal', function(event) {
 	
-	// Recebe o botao que disparou o evento do html
+	// Receives the button that started the event in the html file
 	var button = $(event.relatedTarget);
 	
-	// Salva os campos do objeto disponilizados pelo Thymeleaf nas variaveis
-	var codigoTitulo = button.data('codigo');
-	var descricaoTitulo = button.data('descricao');
+	// Saves the objects's field
+	var bookId = button.data('id');
+	var bookTitle = button.data('title');
 	
-	// Definindo modal pra utilizacao dos metodos
+	// Defines the variable modal in order to use the methods
 	var modal = $(this);
 	
-	// Encontra action e form dentro do html
+	// Finds the fields action and form inside the html file
 	var form = modal.find('form');
 	var action = form.data('url-base');
 	
-	// Caso a string de action nao termine com barra, adiciona uma barra
+	// In case the action string do not end with slash, add a slash
 	if (!action.endsWith('/')) {
 		action+= '/';
 	}
 	
-	// Adiciona a string do action o codigo do titulo
-	form.attr('action', action + codigoTitulo);
+	// Adds to the action string the bookId
+	form.attr('action', action + bookId);
 	
-	// Edita a mensagem do html com as informações do titulo a ser excluido
-	modal.find('.modal-body span').html('Tem certeza que deseja excluir o título <strong>' + descricaoTitulo + '</strong>?');
+	// Adds to the message the title to be deleted
+	modal.find('.modal-body span').html('Tem certeza que deseja excluir o título <strong>' + bookTitle + '</strong>?');
 
 });
 
 
-// Toda vez que recarregar a página, procurar o especificado e chamar a funcao
+// Everytime the page refreshes it looks for the class and calls the function
 
 $(function() {
 	$('[rel="tooltip"]').tooltip();
 	
 	$('.js-currency').maskMoney({decimal: ',', thousands: '.'});
-	
-	$('.js-atualizar-status').on('click', function(event) {
-		event.preventDefault();
-		
-		var botaoReceber = $(event.currentTarget);
-		var urlReceber = botaoReceber.attr('href');
-		
-		var response = $.ajax({
-			url: urlReceber,
-			type: 'PUT'
-		});
-		
-		
-		
-		response.done(function(response) {
-		var codigoTitulo = botaoReceber.data('codigo');
-			$('[data-role=' + codigoTitulo + ']').html('<span class="label label-success">' + response +'</span>');
-			
-			botaoReceber.hide();
-		});
-		
-		response.fail(function(response) {
-			console.log(response);
-			alert('Erro recebendo cobrança');		
-		});
-		
-		console.log('urlReceber', urlReceber);	
-	});
 });

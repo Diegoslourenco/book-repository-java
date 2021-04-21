@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.gft.book.model.Book;
 import com.gft.book.repository.BooksRepository;
+import com.gft.book.repository.filter.BookFilter;
 
 @Service
 public class BookService {
@@ -28,20 +29,11 @@ public class BookService {
 		books.deleteById(id);		
 	}
 	
-	/*
-	public String getById(Long id) {
-		Optional<Book> book = books.findById(id);
-		books.setStatus(StatusBook.NEW);
-		titulos.save(titulo);
+	public List<Book> get(BookFilter bookFilter) {
+		if (bookFilter.getTitle() == null) {
+			return books.findAll();
+		}
 		
-		return StatusTitulo.RECEBIDO.getDescricao();
+		return books.findByTitleContaining(bookFilter.getTitle());
 	}
-	*/
-	
-	/*
-	public List<Titulo> filtrar(TituloFilter filtro) {
-		String descricao = filtro.getDescricao() == null ? "" : filtro.getDescricao();
-		return titulos.findByDescricaoContaining(descricao);	
-	}
-	*/
 }

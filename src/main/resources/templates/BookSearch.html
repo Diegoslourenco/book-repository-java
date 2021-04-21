@@ -42,34 +42,28 @@
 					<thead>
 						<tr>
 							<th class="text-center col-md-1">#</th>
-							<th>Título</th>
-							<th>Autor</th>
-							<th class="text-center col-md-2">Gênero</th>
-							<th class="text-center col-md-2">Status</th>
+							<th class="text-center col-md-2">Título</th>
+							<th class="text-center col-md-2">Autor</th>
+							<th class="text-center col-md-1">Gênero</th>
 							<th class="text-center col-md-2">Data de Inclusão</th>
-							<th class="text-center col-md-2">Avaliação</th>
-							<th class="text-right col-md-2">Preço Unitário</th>
-							<th class="text-center col-md-2">Quantidade</th>					
-							<th class="col-md-1"></th>
+							<th class="text-center col-md-1">Avaliação</th>
+							<th class="text-center col-md-2">Preço Unitário</th>
+							<th class="text-center col-md-2">Quantidade</th>
+							<th class="text-center col-md-2">Status</th>					
+							<th class="col-md-2"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="book : ${books}">
-							<td class="text-center" th:text="${book.id}"></td>
+						<tr th:each="book, count : ${books}">
+							<td class="text-center" th:text="${count.index+1}"></td>
 							<td th:text="${book.title}"></td>
-							<td th:text="${book.autor}"></td>
-							<td class="text-center" th:attr="data-role=${book.id}">
-								<span class="label" th:text="${book.statusBook.status}"
-									th:classappend="${book.new} ? 'label-danger' : 'label-success'"></span>
-							</td>
-							<td class="text-center" th:attr="data-role=${book.id}">
-								<span class="label" th:text="${book.genreBook.genre}"
-									th:classappend="${book.new} ? 'label-danger' : 'label-success'"></span>
-							</td>
+							<td th:text="${book.author}"></td>
+							<td th:text="${book.genre.description}"></td>
 							<td class="text-center" th:text="${{book.dateInclusion}}"></td>
-							<td class="text-right" th:text="${{book.rate}}"></td>
+							<td class="text-center" th:text="${{book.rate}}"></td>
 							<td class="text-right" th:text="|R$ ${{book.price}}|"></td>
-							<td class="text-center" th:text="${{book.quantity}}"></td>
+							<td class="text-center" th:text="${book.quantity}"></td>
+							<td class="text-center" th:text="${book.status.status}"></td>
 							<td class="text-center">
 								<a class="btn btn-link btn-xs" th:href="@{/livros/{id}(id=${book.id})}"
 										title="Editar" rel="tooltip" data-placement="top">
@@ -80,15 +74,9 @@
 									title="Excluir" rel="tooltip" data-placement="top">
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>
-								<a class="btn btn-link btn-xs js-atualizar-status" th:if="${titulo.pendente}"
-										title="Receber" rel="tooltip" data-placement="top"
-										th:attr="data-id=${book.id}"
-										th:href="@{/livros/{id}/receber(id=${book.id})}">
-									<span class="glyphicon glyphicon-check"></span>
-								</a>
 							</td>
 						<tr>
-							<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum livro foi encontrado</td>
+							<td colspan="10" th:if="${#lists.isEmpty(books)}">Nenhum livro foi encontrado</td>
 						</tr>
 					</tbody>
 				</table>

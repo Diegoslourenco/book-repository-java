@@ -19,7 +19,7 @@
 			<div class="panel-heading">
 		  		<div class="clearfix">
 					<h1 class="panel-title gft-title-panel">Novo livro</h1>
-					<a class="btn btn-link gft-link-panel" href="/titulos">Voltar para pesquisa</a>
+					<a class="btn btn-link gft-link-panel" href="/livros">Voltar para pesquisa</a>
 				</div>
 			</div>
 			
@@ -44,7 +44,7 @@
   					<label for="genre" class="col-sm-2 control-label">Gênero</label>
   					<div class="col-sm-2">
   						<select class="form-control" name="genre" th:field="*{genre}">
-  							<option th:each="genreBook : ${allGenreBook}" th:value="${genreBook}" th:text="${genreBook.genre}"></option>
+  							<option th:each="genre : ${allGenreBook}" th:value="${genre}" th:text="${genre.description}"></option>
   						</select>
   					</div>
   				</div> 
@@ -84,7 +84,7 @@
   				<div class="form-group" th:classappend="${#fields.hasErrors('quantity')} ? 'has-error'">
   					<label for="quantity" class="col-sm-2 control-label">Quantidade</label>
   					<div class="col-sm-2">
-  						<input type="text" class="form-control" id="quantity" th:field="*{quantity}"/>
+  						<input type="number" class="form-control" id="quantity" th:field="*{quantity}"/>
   					</div>
   				</div>
 
