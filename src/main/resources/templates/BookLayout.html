@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	
+	<title>Livro</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.standalone.css"/>
+</head>
+
+<body>
+	<header th:replace="BookHeader"></header>
+
+	<section layout:fragment="content">
+		<p>Principal content</p>
+	</section>
+
+	<script src="/js/jquery-3.6.0.min.js"></script>	
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap-datepicker.min.js"></script>
+	<script src="/js/bootstrap-datepicker.pt-BR.min.js"></script>
+	<script src="/js/jquery.maskMoney.min.js"></script>
+	<script src="/js/book.js"></script>	
+
+</body>
+</html>
+	

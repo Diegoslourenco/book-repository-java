@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{BookLayout}">
+	
+<head>
+	<title>Pesquisa de Livros</title>
+</head>
+
+<section layout:fragment="content">
+	<div th:replace="MessageGeneral"></div>	
+
+	<div class="panel panel-default">
+	  	<div class="panel-heading">
+	  		<div class="clearfix">
+				<h1 class="panel-title gft-title-panel">Pesquisa de livros</h1>
+				<a class="btn btn-link gft-link-panel" href="/livros/novo">Novo livro</a>
+			</div>
+		</div>
+			
+		<div class="panel-body">
+		
+			<form method="GET" class="form-horizontal" action="/livros" th:object="${filter}">
+				<div class="form-group">
+					<div class="col-sm-4">
+						<div class="input-group">
+							<input class="form-control" placeholder="Qual livro você está procurando?"
+							autofocus="autofocus" th:field="*{title}">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
+			
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th class="text-center col-md-1">#</th>
+							<th>Título</th>
+							<th>Autor</th>
+							<th class="text-center col-md-2">Gênero</th>
+							<th class="text-center col-md-2">Status</th>
+							<th class="text-center col-md-2">Data de Inclusão</th>
+							<th class="text-center col-md-2">Avaliação</th>
+							<th class="text-right col-md-2">Preço Unitário</th>
+							<th class="text-center col-md-2">Quantidade</th>					
+							<th class="col-md-1"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="book : ${books}">
+							<td class="text-center" th:text="${book.id}"></td>
+							<td th:text="${book.title}"></td>
+							<td th:text="${book.autor}"></td>
+							<td class="text-center" th:attr="data-role=${book.id}">
+								<span class="label" th:text="${book.statusBook.status}"
+									th:classappend="${book.new} ? 'label-danger' : 'label-success'"></span>
+							</td>
+							<td class="text-center" th:attr="data-role=${book.id}">
+								<span class="label" th:text="${book.genreBook.genre}"
+									th:classappend="${book.new} ? 'label-danger' : 'label-success'"></span>
+							</td>
+							<td class="text-center" th:text="${{book.dateInclusion}}"></td>
+							<td class="text-right" th:text="${{book.rate}}"></td>
+							<td class="text-right" th:text="|R$ ${{book.price}}|"></td>
+							<td class="text-center" th:text="${{book.quantity}}"></td>
+							<td class="text-center">
+								<a class="btn btn-link btn-xs" th:href="@{/livros/{id}(id=${book.id})}"
+										title="Editar" rel="tooltip" data-placement="top">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</a>
+								<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#deleteConfirmationModal"
+									th:attr="data-id=${book.id}, data-title=${book.title}"
+									title="Excluir" rel="tooltip" data-placement="top">
+									<span class="glyphicon glyphicon-remove"></span>
+								</a>
+								<a class="btn btn-link btn-xs js-atualizar-status" th:if="${titulo.pendente}"
+										title="Receber" rel="tooltip" data-placement="top"
+										th:attr="data-id=${book.id}"
+										th:href="@{/livros/{id}/receber(id=${book.id})}">
+									<span class="glyphicon glyphicon-check"></span>
+								</a>
+							</td>
+						<tr>
+							<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum livro foi encontrado</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div th:replace="DeleteConfirmation"></div>
+		
+	</div>
+</section>
+</html>
