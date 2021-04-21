@@ -21,6 +21,11 @@
 	.container-fluid {
 		min-height: 100px;
 	}
+	
+	.gft-title-text {
+		font-size: 20px;
+		padding-top: 37px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -36,6 +41,11 @@
 	.container-fluid {
 		min-height: 70px;
 	}
+	
+	.gft-title-text {
+		font-size: 10px;
+		padding-top: 17px;
+	}
 }
 
 .container-fluid {
@@ -44,6 +54,7 @@
 
 .navbar-brand {
 	padding-top: 15px;
+	width: auto;
 }
 
 .form-control {
@@ -58,4 +69,12 @@
 .gft-title-panel {
 	float: left;
 	padding-top: 2px
+}
+
+.gft-title-text {
+	color: white;
+	font-weight: bold;
+	float: left;
+	height: auto;
+	width: auto;
 }
