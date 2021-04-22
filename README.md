@@ -2,7 +2,7 @@
 
 Application built to organize a book repository in order to practice and apply the concepts of a CRUD using Spring Boot and the MVC architectural pattern.
 
-#### Dependencies:
+#### Dependencies: 
 
 - [Spring Boot 2.4.5](https://spring.io/projects/spring-boot)
 - [Thymeleaf 3.0.11](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#expression-utility-objects)
