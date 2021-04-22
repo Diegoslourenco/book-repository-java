@@ -7,7 +7,6 @@ Application built to organize a book repository in order to practice and apply t
 - [Spring Boot 2.4.5](https://spring.io/projects/spring-boot)
 - [Thymeleaf 3.0.11](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#expression-utility-objects)
 - MySQL
-- DevTools
 - [Bootstrap 3.3.7](https://blog.getbootstrap.com/2016/07/25/bootstrap-3-3-7-released/)
 - [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
 - [jQuery 3.6.0](https://jquery.com/download/)
