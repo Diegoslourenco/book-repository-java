@@ -29,10 +29,15 @@ public class BookService {
 	}
 	
 	public List<Book> get(BookFilter bookFilter) {
-		if (bookFilter.getTitle() == null) {
+		if (bookFilter.getText() == null) {
 			return books.findAll();
 		}
 		
-		return books.findByTitleContaining(bookFilter.getTitle());
+		if (bookFilter.getField().ordinal() == 0) {
+			return books.findByTitleContaining(bookFilter.getText());
+		}
+		else {
+			return books.findByAuthorContaining(bookFilter.getText());
+		}
 	}
 }

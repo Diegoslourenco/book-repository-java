@@ -20,6 +20,7 @@ import com.gft.book.model.Book;
 import com.gft.book.model.GenreBook;
 import com.gft.book.model.StatusBook;
 import com.gft.book.repository.filter.BookFilter;
+import com.gft.book.repository.filter.FieldsBookFilter;
 import com.gft.book.service.BookService;
 
 @Controller
@@ -61,7 +62,6 @@ public class BookController {
 	
 	@GetMapping
 	public ModelAndView search(@ModelAttribute("filter") BookFilter bookfilter) {
-		
 		List<Book> allBooks = bookService.get(bookfilter);
 		
 		ModelAndView mv = new ModelAndView(SEARCH_VIEW);
@@ -95,5 +95,10 @@ public class BookController {
 	@ModelAttribute("allGenreBook")
 	public List<GenreBook> allGenreBook() {
 		return Arrays.asList(GenreBook.values());
-	}	
+	}
+	
+	@ModelAttribute("allFieldsBookFilter")
+	public List<FieldsBookFilter> allFieldsBookFilter() {
+		return Arrays.asList(FieldsBookFilter.values());
+	}
 }

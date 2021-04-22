@@ -9,4 +9,6 @@ import com.gft.book.model.Book;
 public interface BooksRepository extends  JpaRepository<Book, Long> {
 	
 	public List<Book> findByTitleContaining(String title);
+
+	public List<Book> findByAuthorContaining(String author);
 }
