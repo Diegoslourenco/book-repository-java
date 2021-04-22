@@ -3,12 +3,14 @@ package com.gft.book.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
@@ -26,6 +28,7 @@ import org.springframework.format.annotation.NumberFormat;
  */
 
 @Entity
+@Table(name = "books")
 public class Book {
 	
 	@Id
@@ -49,6 +52,7 @@ public class Book {
 	@NotNull(message = "Data de inclusão é obrigatória")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
+	@Column(name = "date_inclusion")
 	private Date dateInclusion;
 	
 	@NotNull(message = "Avaliação é obrigatória")

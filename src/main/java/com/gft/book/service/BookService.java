@@ -19,6 +19,8 @@ public class BookService {
 	
 	public void save(Book book) {
 		try {
+			System.out.print(book.getAuthor() + 
+							 book.getDateInclusion());
 			books.save(book);
 		} catch (DataIntegrityViolationException error) {
 			throw new IllegalArgumentException("Formato de data inválido");

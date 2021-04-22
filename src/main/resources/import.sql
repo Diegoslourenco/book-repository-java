@@ -1,0 +1,6 @@
+insert into books (`author`, `date_inclusion`, `genre`, `price`, `quantity`, `rate`, `status`, `title`) values ('George R. R. Martin', '2020-04-21', 'FANTASY', 45.90, 16, 8.0, 'NEW', 'Guerra dos Tronos');
+insert into books (`author`, `date_inclusion`, `genre`, `price`, `quantity`, `rate`, `status`, `title`) values ('Gabriel Garcia Marquez', '2021-01-14', 'ROMANCE', 25.90, 12, 10.0, 'USED', 'Cem Anos de Solidão');
+insert into books (`author`, `date_inclusion`, `genre`, `price`, `quantity`, `rate`, `status`, `title`) values ('Stephen King', '2021-002-05', 'HORROR', 15.90, 32, 9.5, 'USED', 'O Cemitério');
+insert into books (`author`, `date_inclusion`, `genre`, `price`, `quantity`, `rate`, `status`, `title`) values ('Chimamanda Ngozi Adichie', '2021-03-15', 'ROMANCE', 37.00, 2, 5.0, 'NEW', 'Ibisco Roxo');
+insert into books (`author`, `date_inclusion`, `genre`, `price`, `quantity`, `rate`, `status`, `title`) values ('Chigozie Obioma', '2021-04-21', 'ROMANCE', 29.99, 10, 7.5, 'NEW', 'Os Pescadores');
+insert into books (`author`, `date_inclusion`, `genre`, `price`, `quantity`, `rate`, `status`, `title`) values ('André Fran', '2021-04-22', 'TRAVEL', 27.90, 13, 10.0, 'NEW', 'Não Conta lá em Casa');
