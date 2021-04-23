@@ -30,5 +30,4 @@ public class BookFilter {
 	public void setField(FieldsBookFilter field) {
 		this.field = field;
 	}
-	
 }

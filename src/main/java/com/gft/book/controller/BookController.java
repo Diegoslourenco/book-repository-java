@@ -43,25 +43,44 @@ public class BookController {
 	}
 	
 	@PostMapping
-	public String save(@Validated Book book, Errors errors, RedirectAttributes attributes) {
+	public ModelAndView save(@Validated Book book, Errors errors, RedirectAttributes attributes) {
+		
+		ModelAndView mv = new ModelAndView();
 		
 		if (errors.hasErrors()) {
-			return REGISTER_VIEW;
+			mv.setViewName(REGISTER_VIEW);;
+			
+			return mv;
 		}
 		
 		try {
-			bookService.save(book);	
+			bookService.save(book);
 			
+			mv = new ModelAndView("redirect:/livros/novo");
 			attributes.addFlashAttribute("message", "Livro salvo com sucesso");
-			return "redirect:/livros/novo";
+			
+			return mv;
+	
 		} catch (IllegalArgumentException error) {
-			errors.rejectValue("dateInclusion", null, error.getMessage());
-			return REGISTER_VIEW;
+			errors.rejectValue("dateInclusion", null, error.getMessage());		
+			mv.setViewName(REGISTER_VIEW);
+			
+			return mv;
 		}
 	}
 	
 	@GetMapping
 	public ModelAndView search(@ModelAttribute("filter") BookFilter bookfilter) {
+		List<Book> allBooks = bookService.get(bookfilter);
+		
+		ModelAndView mv = new ModelAndView(SEARCH_VIEW);
+		mv.addObject("books", allBooks);
+		
+		return mv;
+	}
+	
+	@GetMapping("/ordenar")
+	public ModelAndView organize(@ModelAttribute("Filter") BookFilter bookfilter) {
 		List<Book> allBooks = bookService.get(bookfilter);
 		
 		ModelAndView mv = new ModelAndView(SEARCH_VIEW);

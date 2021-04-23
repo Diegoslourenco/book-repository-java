@@ -21,42 +21,46 @@
 			
 		<div class="panel-body">
 		
-			<form method="GET" class="form-horizontal" action="/livros" th:object="${filter}">	
-			
-				<div class="form-group">		
-				  	<div class="col-sm-2">
-  						<select class="form-control" name="filter" th:field="*{field}">
-  							<option th:each="field : ${allFieldsBookFilter}" th:value="${field}" th:text="${field.description}"></option>
-  						</select>
-  					</div>
-  					
-					<div class="col-sm-4">
-						<div class="input-group">
-							<input class="form-control" placeholder="Qual livro você está procurando?"
-							autofocus="autofocus" th:field="*{text}">
-							<span class="input-group-btn">
-								<button type="submit" class="btn btn-default">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</span>
+			<div class="row" th:object="${filter}">
+					
+				<div class="col-lg-8">	
+					<form method="GET" class="form-horizontal" action="/livros">							
+						<div class="form-group">		
+						  	<div class="col-sm-2">
+		  						<select class="form-control" name="filter" th:field="*{field}">
+		  							<option th:each="field : ${allFieldsBookFilter}" th:value="${field}" th:text="${field.description}"></option>
+		  						</select>
+		  					</div>
+		  					
+							<div class="col-sm-6">
+								<div class="input-group">
+									<input class="form-control" placeholder="Qual livro você está procurando?"
+									autofocus="autofocus" th:field="*{text}">
+									<span class="input-group-btn">
+										<button type="submit" class="btn btn-default">
+											<i class="glyphicon glyphicon-search"></i>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</form>
+					</form>
+				</div>			
+			</div>
 			
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped align-middle">
 					<thead>
 						<tr>
-							<th class="text-center col-md-1">#</th>
-							<th class="text-center col-md-2">Título</th>
-							<th class="text-center col-md-2">Autor</th>
-							<th class="text-center col-md-1">Gênero</th>
-							<th class="text-center col-md-1">Data de Inclusão</th>
-							<th class="text-center col-md-1">Avaliação</th>
-							<th class="text-center col-md-1">Preço Unitário</th>
-							<th class="text-center col-md-1">Quantidade</th>
-							<th class="text-center col-md-1">Status</th>					
+							<th id="id"class="text-center col-md-1">#</th>
+							<th id="title-header" class="text-center col-md-2">Título</th>
+							<th id="author-header" class="text-center col-md-2">Autor</th>
+							<th id="genre-header" class="text-center col-md-1">Gênero</th>
+							<th id="date-header" class="text-center col-md-1">Data de Inclusão</th>
+							<th id="rate-header" class="text-center col-md-1">Avaliação</th>
+							<th id="price-header" class="text-center col-md-1">Preço Unitário</th>
+							<th id="quantity-header" class="text-center col-md-1">Quantidade</th>
+							<th id="status-header" class="text-center col-md-1">Status</th>					
 							<th class="col-md-2"></th>
 						</tr>
 					</thead>

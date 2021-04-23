@@ -22,7 +22,7 @@ $('#deleteConfirmationModal').on('show.bs.modal', function(event) {
 	}
 	
 	// Adds to the action string the bookId
-	form.attr('action', action + bookId);
+form.attr('action', action + bookId);
 	
 	// Adds to the message the title to be deleted
 	modal.find('.modal-body span').html('Tem certeza que deseja excluir o título <strong>' + bookTitle + '</strong>?');
@@ -37,3 +37,42 @@ $(function() {
 	
 	$('.js-currency').maskMoney({decimal: ',', thousands: '.'});
 });
+
+
+// Sorting the table on click in the fields
+var table = $('table');
+    
+$('#id, #title-header, #author-header, #genre-header, #date-header, #rate-header, #price-header, #quantity-header, #status-header')
+    .wrapInner('<span title="sort this column"/>')
+    .each( function () {
+        
+        var th = $(this),
+            thIndex = th.index(),
+            inverse = false;
+        
+        th.click(function(){
+            
+            table.find('td').filter(function(){
+                
+                return $(this).index() === thIndex;
+                
+            }).sortElements(function(a, b){
+                
+                return $.text([a]) > $.text([b]) ?
+                    inverse ? -1 : 1
+                    : inverse ? 1 : -1;
+                
+            }, function(){
+                
+                // parentNode is the element we want to move
+                return this.parentNode; 
+                
+            });
+            
+            inverse = !inverse;
+                
+        });
+            
+    });
+
+
