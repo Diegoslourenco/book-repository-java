@@ -11,3 +11,4 @@ Application built to organize a book repository in order to practice and apply t
 - [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
 - [jQuery 3.6.0](https://jquery.com/download/)
 - jQuery [maskMoney](https://github.com/plentz/jquery-maskmoney)
+- jQuery [sortElements](https://github.com/padolsey-archive/jquery.fn/tree/master/sortElements)
