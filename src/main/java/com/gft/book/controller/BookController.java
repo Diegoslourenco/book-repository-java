@@ -79,16 +79,6 @@ public class BookController {
 		return mv;
 	}
 	
-	@GetMapping("/ordenar")
-	public ModelAndView organize(@ModelAttribute("Filter") BookFilter bookfilter) {
-		List<Book> allBooks = bookService.get(bookfilter);
-		
-		ModelAndView mv = new ModelAndView(SEARCH_VIEW);
-		mv.addObject("books", allBooks);
-		
-		return mv;
-	}
-	
 	@GetMapping("{id}")
 	public ModelAndView update(@PathVariable("id") Book book) {		
 		ModelAndView mv = new ModelAndView(REGISTER_VIEW);
