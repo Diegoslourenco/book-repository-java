@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,7 +35,13 @@ public class Book {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "book_id")
 	private long id;
+	
+	@NotNull
+	@Column(name = "owner_id", nullable = false)
+	@JoinColumn(name = "user_id")
+	private long ownerId;
 	
 	@NotBlank(message = "Título é obrigatório")
 	@Size(max = 60, message = "O título não pode conter mais de 60 caracteres")
@@ -78,6 +85,14 @@ public class Book {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public long getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(long ownerId) {
+		this.ownerId = ownerId;
 	}
 
 	public String getTitle() {
