@@ -26,7 +26,7 @@ Application built to organize a book repository in order to practice and apply t
 ## Internal Architecture
 The internal architecture:
 
-  * `Controller` classes provide REST endpoints and deal with HTTP requests and responses from/to the view
+  * `Controller` classes provide endpoints and deal with HTTP requests and responses from/to the view
   * `Service` 	classes contains the business rules, receive the request from a controller and talk to repository to acess data to return a response to controller
   * `Repository` classes interface with the DAO internally that interface with the database and take care of writing and reading data to/from persistent storage
 
